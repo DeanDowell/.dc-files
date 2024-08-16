@@ -1,0 +1,14 @@
+DC2F 1.0
+Language: DeanScript
+Timestamp: 2024-08-16
+
+[METADATA]
+Author: John Doe
+Description: This script opens an HTML file in the default browser.
+
+[BEGIN BLOCK: open_html]
+open "C:\Users\deanm\OneDrive\Documents\dc.html"
+[END BLOCK]
+
+Checksum: 89ABCDEF
+EOF-DC2
