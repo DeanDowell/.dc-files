@@ -2,6 +2,8 @@
 
 The `.dc` file format is designed for defining and executing scripts written in the DeanScript language. This document provides an overview of the structure and components of `.dc` files, including their purpose and usage.
 
+**Note:** This project includes Dean's Console 3,Which can code .dc files and view by opening it in notepad or others.
+
 ## Overview
 
 A `.dc` file contains a structured script that can be executed by the DC2F interpreter. It includes metadata, script blocks, comments, configuration options, and integrity checks. This format ensures that scripts are well-documented, maintainable, and executable with defined behavior.
@@ -118,7 +120,7 @@ EOF-DC2
 
 To use a `.dc` file:
 
-1. Ensure that you have the DC2F interpreter installed.
+1. Ensure that you have the DC2F interpreter and Dean's Console 3 installed.
 2. Load the `.dc` file into the interpreter.
 3. The interpreter will read the file, execute the script as configured, and validate its integrity using the checksum.
 
