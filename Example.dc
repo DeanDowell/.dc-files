@@ -1,0 +1,27 @@
+DC2F 2.0
+Language: DeanScript
+Timestamp: 2024-08-17
+[METADATA]
+Author: Dean Dowell
+Description: This script prints a greeting message.
+Dependencies: utils.deanlib
+[COMMENTS]
+# This is a simple script for demonstration purposes.
+[CONFIG]
+execute_on_load = true
+[html]
+<!-- Your HTML content here -->
+[css]
+/* Your CSS content here */
+[js]
+// Your JavaScript content here
+[bat]
+:: Your Batch script here
+[lua]
+-- Your LUA script here
+[BEGIN BLOCK: main]
+func main() {
+    print("Hello, World!");
+}
+[END BLOCK]
+EOF-DC2
