@@ -5,7 +5,7 @@ title Dean's Console 3
 cls
 echo *** Dean's Console 3 ***
 echo.
-echo 1. Open .dc file
+echo 1. Open .dc 2.0 file
 echo 2. Run .html file
 echo 3. Code (Edit a file)
 echo 4. Open a URL
@@ -22,12 +22,36 @@ goto MENU
 
 :OPEN_DC_FILE
 cls
-echo Enter the path of the .dc file to open:
+echo Enter the path of the .dc 2.0 file to open:
 set /p dc_filepath=
 
 REM Check if the .dc file exists
 if exist "%dc_filepath%" (
-    notepad "%dc_filepath%"
+    REM Check for DC2F 2.0 header
+    set "header=DC2F 2.0"
+    set /p "fileheader=<%dc_filepath%"
+    if "%fileheader:~0,8%" neq "%header%" (
+        echo Not a valid DC2F 2.0 file.
+        pause
+        goto MENU
+    )
+
+    REM Display metadata
+    echo Metadata for %dc_filepath%:
+    echo ----------------------------
+    for /f "tokens=1,* delims=:" %%a in ('findstr /b /c:"Language:" "%dc_filepath%"') do echo Language: %%b
+    for /f "tokens=1,* delims=:" %%a in ('findstr /b /c:"Timestamp:" "%dc_filepath%"') do echo Timestamp: %%b
+    for /f "tokens=1,* delims=:" %%a in ('findstr /b /c:"Author:" "%dc_filepath%"') do echo Author: %%b
+    for /f "tokens=1,* delims=:" %%a in ('findstr /b /c:"Description:" "%dc_filepath%"') do echo Description: %%b
+    for /f "tokens=1,* delims=:" %%a in ('findstr /b /c:"Dependencies:" "%dc_filepath%"') do echo Dependencies: %%b
+    echo ----------------------------
+
+    REM Process the file (skip metadata lines)
+    echo Processing script...
+    for /f "skip=5 delims=" %%c in ('type "%dc_filepath%"') do (
+        echo Running: %%c
+        rem Here you would add logic to execute the script commands
+    )
 ) else (
     echo File not found: "%dc_filepath%"
 )
